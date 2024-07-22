@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP Permissions Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="window-controls">
+                <button id="minimizeBtn" class="window-control-btn">-</button>
+                <button id="maximizeBtn" class="window-control-btn">□</button>
+                <button id="closeBtn" class="window-control-btn">✕</button>
+            </div>
+            <h1>SAP Permissions Manager</h1>
+            <button id="addEmployeeBtn">Add Employee</button>
+        </header>
+
+        <main class="app-main">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search employees...">
+            </div>
+
+            <div id="employeeList" class="employee-list"></div>
+
+            <div id="employeeDetails" class="employee-details hidden"></div>
+
+            <div id="employeeForm" class="employee-form hidden"></div>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>

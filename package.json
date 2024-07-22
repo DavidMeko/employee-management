@@ -1,0 +1,16 @@
+{
+  "name": "sap-permissions-manager",
+  "version": "1.0.0",
+  "description": "Electron app to manage SAP permissions",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^15.0.0",
+    "odbc": "^2.4.8"
+  }
+}
