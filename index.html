@@ -4,25 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAP Permissions Manager</title>
+    <title>Employee Management System</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="app-container">
         <header class="app-header">
             <div class="window-controls">
-                <button id="minimizeBtn" class="window-control-btn">-</button>
-                <button id="maximizeBtn" class="window-control-btn">□</button>
-                <button id="closeBtn" class="window-control-btn">✕</button>
+                <button id="minimizeBtn" class="window-control-btn">
+                    <svg viewBox="0 0 10 1">
+                        <path d="M0 0h10v1H0z"></path>
+                    </svg>
+                </button>
+                <button id="maximizeBtn" class="window-control-btn">
+                    <svg viewBox="0 0 10 10">
+                        <path d="M0 0v10h10V0H0zm1 1h8v8H1V1z"></path>
+                    </svg>
+                </button>
+                <button id="closeBtn" class="window-control-btn">
+                    <svg viewBox="0 0 10 10">
+                        <path d="M1 1l8 8m0-8L1 9"></path>
+                    </svg>
+                </button>
             </div>
-            <h1>SAP Permissions Manager</h1>
-            <button id="addEmployeeBtn">Add Employee</button>
+            <h1>Employee Management</h1>
+            <button id="addEmployeeBtn" class="add-btn"><i class="fas fa-user-plus"></i> Add Employee</button>
         </header>
 
         <main class="app-main">
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Search employees...">
+                <i class="fas fa-search search-icon"></i>
             </div>
 
             <div id="employeeList" class="employee-list"></div>

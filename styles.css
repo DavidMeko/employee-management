@@ -5,8 +5,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
     color: #333;
     line-height: 1.6;
 }
@@ -20,44 +20,56 @@ body {
 .app-header {
     background-color: #ffffff;
     color: #333;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 40px;
+    -webkit-app-region: drag;
+}
+
+.app-header h1, .app-header button {
+    -webkit-app-region: no-drag;
 }
 
 .window-controls {
     display: flex;
+    align-items: center;
 }
 
 .window-control-btn {
     background: none;
     border: none;
     color: #333;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     margin-left: 0.5rem;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .window-control-btn:hover {
-    color: #6281cf;
-}
-
-h1,
-h2 {
-    margin: 0;
-    font-weight: 400;
+    color: #007bff;
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
-h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+.add-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.add-btn:hover {
+    background-color: #0056b3;
 }
 
 .app-main {
@@ -70,20 +82,31 @@ h2 {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    position: relative;
 }
 
 #searchInput {
     width: 50%;
-    padding: 0.75rem;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
     font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
 }
 
 #searchInput:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(98, 129, 207, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+.search-icon {
+    position: absolute;
+    left: 26%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #007bff;
 }
 
 .employee-list {
@@ -93,36 +116,25 @@ h2 {
 }
 
 .employee-card {
-    background-color: #ffffff;
-    border-radius: 4px;
+    background-color: white;
+    border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .employee-card:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.employee-card h3 {
-    margin: 0 0 1rem 0;
-    color: #6281cf;
-    font-weight: 500;
-}
-
-.employee-card p {
-    margin: 0.5rem 0;
-    font-size: 0.9rem;
-    color: #666;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .employee-details,
 .employee-form {
-    background-color: #ffffff;
-    border-radius: 4px;
+    background-color: white;
+    border-radius: 8px;
     padding: 2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
 }
 
@@ -141,6 +153,7 @@ label {
 }
 
 input,
+select,
 textarea {
     width: 100%;
     padding: 0.75rem;
@@ -151,9 +164,10 @@ textarea {
 }
 
 input:focus,
+select:focus,
 textarea:focus {
     outline: none;
-    border-color: #6281cf;
+    border-color: #007bff;
 }
 
 .button-group {
@@ -169,61 +183,128 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #6281cf;
-    color: white;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #4a69b1;
+.btn-primary {
+    background-color: #007bff;
+    color: white;
 }
 
-#addEmployeeBtn {
-    background-color: #4CAF50;
+.btn-primary:hover {
+    background-color: #0056b3;
 }
 
-#addEmployeeBtn:hover {
-    background-color: #45a049;
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
 }
 
-#deleteEmployeeBtn {
-    background-color: #f44336;
+.btn-secondary:hover {
+    background-color: #545b62;
 }
 
-#deleteEmployeeBtn:hover {
-    background-color: #da190b;
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
 }
 
-.error-message {
-    color: #f44336;
-    background-color: #ffebee;
-    border: 1px solid #ffcdd2;
-    padding: 1rem;
-    border-radius: 4px;
-    text-align: center;
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.roles-container,
+.transactions-container {
     margin-top: 1rem;
 }
 
-.no-employees {
-    text-align: center;
-    color: #666;
-    font-style: italic;
+.role-item,
+.transaction-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
 }
 
-/* Scrollbar styles */
-::-webkit-scrollbar {
-    width: 8px;
+.role-item select,
+.transaction-item select {
+    margin-right: 0.5rem;
 }
 
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
+.remove-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.2rem 0.5rem;
     border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
+.add-role-btn,
+.add-transaction-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.window-controls {
+    display: flex;
+    align-items: center;
+    -webkit-app-region: no-drag;
+}
+
+.window-control-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.window-controls {
+    display: flex;
+    align-items: center;
+    -webkit-app-region: no-drag;
+}
+
+.window-control-btn {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.window-control-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.window-control-btn svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #333;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#closeBtn:hover {
+    background-color: #dc3545;
+}
+
+#closeBtn:hover svg {
+    stroke: white;
 }
